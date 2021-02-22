@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+[v-cloak] > * { display:none }
+[v-cloak]::before { 
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #898989;
+    content: "carregando…"; 
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+}
+
+.loading-screen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    z-index: 1000;
+    color: #ffffff;
+}
+
+.bloco-404{
+	text-align: center;
+	h2{
+		font-weight: bold;
+		font-size: 2rem;
+		margin-bottom: 1em;
+	}
+	p{
+		font-style: italic;
+	}
+}
+
+.alignleft {
+	display: inline;
+	float: left;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+}
+
+.aligncenter {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+blockquote.alignleft,
+.wp-caption.alignleft,
+img.alignleft {
+	margin: 0.4em 1.6em 1.6em 0;
+}
+
+blockquote.alignright,
+.wp-caption.alignright,
+img.alignright {
+	margin: 0.4em 0 1.6em 1.6em;
+}
+
+blockquote.aligncenter,
+.wp-caption.aligncenter,
+img.aligncenter {
+	clear: both;
+	margin-top: 0.4em;
+	margin-bottom: 1.6em;
+}
+
+.wp-caption.alignleft,
+.wp-caption.alignright,
+.wp-caption.aligncenter {
+	margin-bottom: 1.2em;
+}

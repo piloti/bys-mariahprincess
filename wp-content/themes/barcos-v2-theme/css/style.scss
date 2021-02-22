@@ -1,0 +1,566 @@
+@charset "UTF-8";
+@import 'base.scss';
+@import 'defaults.scss';
+
+html, body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @include fonte();
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #000;
+    background-color: #fff;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 77.5%; /* Sets up the Base 10 stuff */
+    @media screen and (max-width: 1800px) {
+        font-size: 70%;
+    }
+    @media screen and (max-width: 1600px) {
+        font-size: 62.5%;
+    }
+    @media screen and (max-width: 1300px) {
+        font-size: 55%;
+    }
+    @media screen and (max-width: 1100px) {
+        font-size: 45%;
+    }
+    @media screen and (max-width: 700px) {
+        font-size: 40%;
+    }
+}
+
+// v-cloak e outros estilos básicos estão em defaults.scss
+
+:target:before {
+    content:"";
+    display:block;
+    height: 60px; /* fixed header height*/
+    margin:-60px 0 0; /* negative fixed header height */
+    @media screen and (max-width: $mobile) {
+
+    }
+}
+
+a:hover{
+    text-decoration: none;
+}
+a:active{
+    text-decoration: none;
+}
+
+.section{
+    width: 100%;
+    height: auto;
+    @include fsize(1.7);
+    &.telacheia{
+        width: 100%;
+        height: 100vh;
+    }
+    .container{
+        width: 100%;
+        margin: 0 auto;
+        padding-left: $pl;
+        padding-right: $pl;
+        @media screen and (max-width: $mobile) {
+            width: 100%;
+            padding-left: 5vw;
+            padding-right: 5vw;
+            //padding: 0 15px;
+        }
+    }
+    
+}
+
+
+.hide{
+    display: none !important;
+}
+
+.hidestrong{
+    opacity: 0;
+    visibility: hidden;
+    position: relative;
+    z-index: -1;
+}
+
+.invisivel{
+    visibility: hidden;
+    z-index: -1;
+    position: relative;
+}
+
+.desk{
+    display: block !important;
+    @media screen and (max-width: $mobile) {
+        display: none !important;
+    }
+}
+
+.resp{
+    display: none !important;
+    @media screen and (max-width: $mobile) {
+        display: block !important;
+    }
+}
+
+.break{
+    display: inline-block;
+    width: 100%;
+    height: 0;
+}
+
+.flexbox .flexcentro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-flexbox .flexcentro{
+
+}
+
+.layout-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    &.ais{
+        align-items: stretch;
+    }
+    &.aifs{
+        align-items: flex-start;
+    }
+    &.aife{
+        align-items: flex-end;
+    }
+    &.jcsb{
+        justify-content: space-between;
+    }
+    &.jcsa{
+        justify-content: space-around;
+    }
+    &.jcfs{
+        justify-content: flex-start;
+    }
+    &.jcfe{
+        justify-content: flex-end;
+    }
+    .bloco-imagem{
+        img{
+            width: 100%;
+            display: block;
+        }
+    }
+    .full{
+        width: 100% !important;
+    }
+}
+
+@for $i from 1 through 12 {
+
+.coluna-#{$i} {
+    width: colunas($i);
+    @media screen and (max-width: $mobile) {
+        width: 100%;
+        padding: 0 3rem;
+    }    
+} 
+
+}
+
+.menu-fixo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    @include fdest();
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 6rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+    .enquire{
+        height: 6rem;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        line-height: 6rem;
+        @include fsize(2);
+        position: relative;
+        color: $cinza;
+        &:before{
+            content: "";
+            display:block;
+            width: 90%;
+            height: 10px;
+            background-color: $azul;
+            position: absolute;
+            bottom: -5px;
+            left: 5%;
+        }
+        span{
+            display: block;
+            height: 6rem;
+            width: 50%;
+            &:first-of-type{
+                border-right: 1px solid $azul;
+            }
+        }
+    }
+    .menu{
+        text-align: right;
+        color: #fff;
+        @include fsize(2);
+        a{
+            margin-left: 4rem;
+        }
+        img{
+            height: 3rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+.barco-capa{
+    width: 100%;
+    height: 100vh;
+    background-color: #cdcdcd;
+    background-image: url('../img/fundo-barco-1_2@2x-80.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    .container{
+        height: 100%;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+        position: relative;
+        z-index: 10;
+        pointer-events: none;
+    }
+    .layout-flex{
+        height: 100%;
+    }
+    .layout-titulo{
+        width: 100%;
+        height: auto;
+        flex-direction: row-reverse;
+        img{
+            max-height: 12rem;
+        }
+    }
+    h1{
+        @include fsize(7);
+        color: #fff;
+        position: relative;
+        &:before{
+            content: "";
+            display:block;
+            width: 50%;
+            height: 10px;
+            background-color: #fff;
+            position: absolute;
+            top: -10px;
+            right: 0;
+        }
+    }
+    .container-slides{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        .slick-slides-capa{
+            width: 100%;
+            height: 100%;
+        }
+        .slide-capa{
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .nav-prev-capa{
+        position: absolute;
+        top: 50%;
+        margin-top: -2rem;
+        left: $pl;
+        z-index: 20;
+        background-color: #fff;
+        color: $tclaro;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 4rem;
+        font-size: 3rem;
+        line-height: 1;
+        i{
+            position: relative;
+            left: -2px;
+        }
+    }
+    .nav-next-capa{
+        position: absolute;
+        top: 50%;
+        margin-top: -2rem;
+        right: $pl;
+        z-index: 20;
+        background-color: #fff;
+        color: $tclaro;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 4rem;
+        font-size: 3rem;
+        line-height: 1;
+        i{
+            position: relative;
+            left: 2px;
+        }
+    }
+}
+
+.barco-icones{
+    padding: 10vh 0;
+    .icone-barco{
+        text-align: center;
+        @include fsize(2.4);
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin: 0 2vw;
+        img{
+            display: block;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.barco-seemore{
+    padding: 10vh 0;
+    background-image: url('../img/fundo-yacht@2x-80.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    .bloco-texto{
+        margin: 0 auto;
+        text-align: center;
+        h2{
+            @include fdest();
+            @include fsize(8);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+    }
+    p{
+        margin-bottom: 4rem;
+    }
+    .botao{
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #fff;
+        padding: 1.5rem 4rem;
+        @include fdest();
+        @include fsize(3);
+        &:hover{
+            background-color: #fff;
+            color: $azul;
+        }
+    }
+    .more{
+        display: inline-block;
+    }
+    .less{
+        display: none;
+    }
+    &.ativo{
+        .more{
+            display: none;
+        }
+        .less{
+            display: inline-block;
+        }    
+    }
+}
+
+.barco-galerias{
+    padding: 5vh 0;
+    .gal-chamada{
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 60%;
+        background-color: #cdcdcd;
+        position: relative;
+        margin-bottom: 2vw;
+        background-image: url('../img/fundo-yacht@2x-80.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        &.grandao{
+            padding-bottom: 30%;
+        }
+    }    
+    .inside-gal{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 3rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    h3{
+        background-color: $azul;
+        color: #fff;
+        padding: 1rem 4rem;
+        @include fdest();
+        @include fsize(2);
+        text-transform: uppercase;
+    }
+}
+
+.barcos-touch{
+    width: 100%;
+    padding-bottom: 5vh;
+    .in-touch{
+        background-color: $fundo;
+        padding: 8rem 4rem;
+        padding-bottom: 4rem;
+    }
+    .titulo{
+        text-align: right;
+        @include fdest();
+        @include fsize(6);
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        color: $azul;
+    }
+    .coluna-campos{
+        width: 40%;
+        input{
+            display: block;
+            width: 100%;
+            margin-bottom: 1.8rem;
+            @include fonte();
+            @include fsize(1.8);
+            padding-left: 10px;
+            line-height: 2;
+            border: none;
+        }
+    }
+    .coluna-mensagem{
+        width: 58%;
+        textarea{
+            width: 100%;
+            @include fonte();
+            @include fsize(1.8);
+            padding: 10px;
+            line-height: 1.5;
+            height: 15rem;
+            border: none;
+        }
+    }
+    .coluna-botao{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    input[type="submit"]{
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid $azul;
+        background-color: $azul;
+        color: #fff;
+        padding: 1rem 4rem;
+        @include fdest();
+        @include fsize(2.4);
+        cursor: pointer;
+        &:hover{
+            border: 1px solid $azul;
+            background-color: #fff;
+            color: $azul;
+        }    
+    }
+    br{
+        display: none;
+    }
+}
+
+.barco-information{
+    padding: 10vh 0;
+    display: none;
+    &.ativo{
+        display: block;
+    }
+    .bloco-info{
+        text-align: right;
+        border-top: 1rem solid $azul;
+        padding-top: 4rem;
+        color: $azul2;
+        h3{
+            @include fsize(5);
+            @include fdest();
+            text-transform: uppercase;
+            color: $azul;
+        }
+        p{
+            @include fsize(2.2);
+            padding-left: 6rem;
+        }
+    }
+    .colunas-interna{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        &.sb{
+            justify-content: space-between;
+        }
+        .coluna-meio{
+            width: 48%;
+        }
+    }
+    .item-col{
+        margin-bottom: 2.5rem;
+        @include fsize(2.2);
+        small{
+            display: block;
+        }
+        span{
+            display: block;
+            font-weight: bold;
+        }
+    }
+    .divisoria{
+        width: 100%;
+        height: 10rem;
+    }
+    
+}
+
+.regua-info{
+    width: 100%;
+    text-align: center;
+    margin-top: 10rem;
+    text-transform: uppercase;
+    @include fsize(2);
+    span{
+        display: inline-block;
+        margin: 0 10px;
+    }
+}

@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+// ==========================================================================
+// Plugins e Frameworks de SASS
+// ==========================================================================
+
+$grid-columns: 12;
+$max-width: 1080px;
+$maxwidth: 1080px;
+$mobile: 600px;
+
+
+$branco: #fff;
+$texto: #000;
+$tclaro: #9d9d9c;
+$cinza: #878787;
+$fundo: #e8e8e8;
+$azul: #111e30;
+$azul2: #49707c;
+
+$fzpadrao: 15px;
+
+//MIXIN FONTE
+@mixin fonte(){
+	font-family: 'Montserrat', 'Calibri', 'Lucida Grande', sans-serif;
+}
+
+@mixin fdest(){
+	font-family: 'Share', 'Calibri', 'Lucida Grande', sans-serif;
+}
+
+@mixin fsize($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+//LAYOUT
+$wtotal: 100vw;
+$wutil: 90vw;
+$pl: ($wtotal - $wutil)/2;
+
+$numcols: 12;
+$gutter: 3vw;
+$col: ($wutil - ($numcols - 1)*$gutter)/$numcols;
+
+
+@function colunas($ncol){
+	@return ($ncol*$col + ($ncol - 1)*$gutter);
+}
+
+
+// ==========================================================================
+// Resets e Configurações básicas
+// ==========================================================================
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, 
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+a{
+	color: inherit;
+	text-decoration: none;
+}
+strong, b{
+	font-weight: bold;
+}
+em{
+	font-style: italic;
+}
+
